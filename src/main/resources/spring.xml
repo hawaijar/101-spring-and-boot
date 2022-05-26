@@ -10,5 +10,5 @@
 <!--	<bean id="doctor" class="demo.Doctor" >-->
 <!--		<constructor-arg ref="cloud9"/>-->
 <!--	</bean>-->
-	<context:component-scan base-package="demo"/>
+<!--	<context:component-scan base-package="demo"/>-->
 </beans>
