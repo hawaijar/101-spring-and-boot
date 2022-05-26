@@ -2,7 +2,6 @@ package demo;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public class Doctor {
 	public Doctor(Hospital hospital) {
 		this.hospital = hospital;

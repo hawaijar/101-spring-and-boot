@@ -6,9 +6,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 	public static void main(String[] args) {
-		try(ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class)){
-			Doctor doctor = context.getBean(Doctor.class);
-			System.out.println("Hospital's name: " + doctor.getHospital().getName());
+		try(ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("spring.xml")){
+			Hospital hospital = context.getBean(Hospital.class);
+			System.out.println("Hospital's name: " + hospital.getName());
+			Hospital hospital2 = context.getBean(Hospital.class);
+			hospital2.setName("Apollo Hospital");
+			System.out.println("Hospital's name: " + hospital.getName());
 		}
 	}
 }
