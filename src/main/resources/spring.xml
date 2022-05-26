@@ -4,10 +4,11 @@
 	   xmlns:context="http://www.springframework.org/schema/context"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="cloud9" class="demo.Hospital" scope="prototype">
-		<constructor-arg value="Morning Sky Hospital"/>
-	</bean>
-	<bean id="doctor" class="demo.Doctor" >
-		<constructor-arg ref="cloud9"/>
-	</bean>
+<!--	<bean id="cloud9" class="demo.Hospital" scope="prototype">-->
+<!--		<constructor-arg value="Morning Sky Hospital"/>-->
+<!--	</bean>-->
+<!--	<bean id="doctor" class="demo.Doctor" >-->
+<!--		<constructor-arg ref="cloud9"/>-->
+<!--	</bean>-->
+	<context:component-scan base-package="demo"/>
 </beans>
