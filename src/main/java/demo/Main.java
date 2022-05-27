@@ -7,10 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 	public static void main(String[] args) {
 		try(ConfigurableApplicationContext context = new AnnotationConfigApplicationContext("demo")){
-			Hospital hospital = context.getBean(Hospital.class);
-			System.out.println("Hospital's name: " + hospital.getName());
-			Hospital hospital2 = context.getBean(Hospital.class);
-			hospital2.setName("Apollo Hospital");
+			Hospital hospital = context.getBean("apollo",Hospital.class);
 			System.out.println("Hospital's name: " + hospital.getName());
 		}
 	}
