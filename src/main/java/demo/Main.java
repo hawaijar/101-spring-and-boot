@@ -8,7 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 		try(ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class)){
 			ShoppingCart cart = context.getBean(ShoppingCart.class);
-			cart.checkout();
+			cart.checkout("CANCELLED");
 		}
 	}
 }
