@@ -6,9 +6,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 	public static void main(String[] args) {
-		try(ConfigurableApplicationContext context = new AnnotationConfigApplicationContext("demo")){
-			Hospital hospital = context.getBean("apollo",Hospital.class);
-			System.out.println("Hospital's name: " + hospital.getName());
+		try(ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(BeanConfig.class)){
+			ShoppingCart cart = context.getBean(ShoppingCart.class);
+			cart.checkout();
 		}
 	}
 }
