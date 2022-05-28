@@ -4,7 +4,7 @@ import org.springframework.context.annotation.*;
 
 @Configuration
 @ComponentScan(basePackages = "demo")
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy(proxyTargetClass=true)
 public class BeanConfig {
 	@Bean(name="apollo")
 	@Primary

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class Logger {
-	@Before("execution(* demo.ShoppingCart.checkout(*))")
+	@Before("execution(public String demo.*.get*())")
 	public void log() {
 		System.out.println("Logging method called...");
 	}
