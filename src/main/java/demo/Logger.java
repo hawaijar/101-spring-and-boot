@@ -18,4 +18,10 @@ public class Logger {
 	}
 	@Pointcut("execution(public String demo.*.get*())")
 	public void allGetters(){}
+	@Before("security()")
+	public void authenticate() {
+		System.out.println("Authentication required...");
+	}
+	@Pointcut("within(demo.ShoppingCart)")
+	public void security(){}
 }
