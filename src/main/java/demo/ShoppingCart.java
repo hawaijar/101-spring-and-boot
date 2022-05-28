@@ -13,4 +13,7 @@ public class ShoppingCart {
 	public void logout() {
 		System.out.println("Logging out...");
 	}
+	public double calculateAmount(double total, double tax) {
+		return total + tax/100;
+	}
 }

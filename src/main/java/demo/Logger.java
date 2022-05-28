@@ -1,8 +1,13 @@
 package demo;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 @Aspect
@@ -24,4 +29,20 @@ public class Logger {
 	}
 	@Pointcut("within(demo.ShoppingCart)")
 	public void security(){}
+
+	@Around("amount()")
+	public Object totalAmount(ProceedingJoinPoint joinPoint) throws Throwable {
+		String targetClass = joinPoint.getTarget().getClass().getSimpleName();
+		String targetMethod = joinPoint.getSignature().getName();
+		Object[] args = joinPoint.getArgs();
+		System.out.println("targetClass:" + targetClass);
+		System.out.println("targetMethod:" + targetMethod);
+		System.out.println("Args:" + Arrays.toString(args));
+		double response = (double) joinPoint.proceed();
+		System.out.println("Method returned:" + response);
+		return response;
+	}
+	@Pointcut("execution(public double demo.ShoppingCart.calculateAmount(..))")
+	public void amount(){}
+
 }
