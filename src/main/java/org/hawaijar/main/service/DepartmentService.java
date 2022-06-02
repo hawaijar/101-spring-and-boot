@@ -13,4 +13,6 @@ public interface DepartmentService {
 	Optional<Department> getDepartmentById(Long id);
 
 	void deleteDepartmentById(Long id);
+
+	Department updateDepartmentById(Long id, Department department);
 }
