@@ -21,7 +21,11 @@ public class DepartmentController {
 		return departmentService.getAllDepartments();
 	}
 	@GetMapping("/api/departments/{id}")
-	public Optional<Department> getDepartmentById(@PathVariable Long id) {
+	public Optional<Department> getDepartmentById(@PathVariable("id") Long id) {
 		return departmentService.getDepartmentById(id);
+	}
+	@DeleteMapping("/api/departments/{id}")
+	public void deleteDepartmentById(@PathVariable("id") Long id) {
+		departmentService.deleteDepartmentById(id);
 	}
 }
