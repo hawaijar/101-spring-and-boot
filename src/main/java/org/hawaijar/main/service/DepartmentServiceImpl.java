@@ -61,6 +61,6 @@ public class DepartmentServiceImpl implements DepartmentService {
 		}
 		return Optional.empty();
 		*/
-		return Optional.ofNullable(departmentRepository.findByName(name));
+		return Optional.ofNullable(departmentRepository.findByNameIgnoreCase(name));
 	}
 }
