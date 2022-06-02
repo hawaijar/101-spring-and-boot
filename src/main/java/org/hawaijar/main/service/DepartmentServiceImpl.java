@@ -52,6 +52,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Override
 	public Optional<Department> getDepartmentByName(String name) {
+		/*
 		List<Department> listOfDepartment = departmentRepository.findAll();
 		for(var d: listOfDepartment) {
 			if(name.equalsIgnoreCase(d.getName())) {
@@ -59,5 +60,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 			}
 		}
 		return Optional.empty();
+		*/
+		return Optional.ofNullable(departmentRepository.findByName(name));
 	}
 }
