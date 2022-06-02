@@ -24,6 +24,10 @@ public class DepartmentController {
 	public Optional<Department> getDepartmentById(@PathVariable("id") Long id) {
 		return departmentService.getDepartmentById(id);
 	}
+	@GetMapping("/api/departments/names/{name}")
+	public Optional<Department> getDepartmentByName(@PathVariable("name") String name) {
+		return departmentService.getDepartmentByName(name);
+	}
 	@DeleteMapping("/api/departments/{id}")
 	public String deleteDepartmentById(@PathVariable("id") Long id) {
 		departmentService.deleteDepartmentById(id);
