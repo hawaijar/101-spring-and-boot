@@ -4,17 +4,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 @Entity
 public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
+	@NotNull(message = "Please provide a valid message")
 	private String name;
 	private String code;
 
 	public Department() {
 	}
-
 	public Department(Long id, String name, String code) {
 		this.id = id;
 		this.name = name;
