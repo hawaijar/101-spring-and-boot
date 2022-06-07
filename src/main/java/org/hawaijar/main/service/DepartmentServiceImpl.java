@@ -1,6 +1,7 @@
 package org.hawaijar.main.service;
 
 import org.hawaijar.main.entity.Department;
+import org.hawaijar.main.entity.Error.DepartmentNotFoundException;
 import org.hawaijar.main.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,12 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 
 	@Override
-	public Optional<Department> getDepartmentById(Long id) {
-		return departmentRepository.findById(id);
+	public Optional<Department> getDepartmentById(Long id) throws DepartmentNotFoundException {
+		Optional<Department> dep = departmentRepository.findById(id);
+		if(dep.isEmpty()) {
+			throw new DepartmentNotFoundException("Department Not Available");
+		}
+		return dep;
 	}
 
 	@Override
@@ -52,15 +57,6 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Override
 	public Optional<Department> getDepartmentByName(String name) {
-		/*
-		List<Department> listOfDepartment = departmentRepository.findAll();
-		for(var d: listOfDepartment) {
-			if(name.equalsIgnoreCase(d.getName())) {
-				return Optional.of(d);
-			}
-		}
-		return Optional.empty();
-		*/
 		return Optional.ofNullable(departmentRepository.findByNameIgnoreCase(name));
 	}
 }

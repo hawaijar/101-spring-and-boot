@@ -1,6 +1,7 @@
 package org.hawaijar.main.controller;
 
 import org.hawaijar.main.entity.Department;
+import org.hawaijar.main.entity.Error.DepartmentNotFoundException;
 import org.hawaijar.main.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class DepartmentController {
 		return departmentService.getAllDepartments();
 	}
 	@GetMapping("/api/departments/{id}")
-	public Optional<Department> getDepartmentById(@PathVariable("id") Long id) {
+	public Optional<Department> getDepartmentById(@PathVariable("id") Long id) throws DepartmentNotFoundException {
 		return departmentService.getDepartmentById(id);
 	}
 	@GetMapping("/api/departments/names/{name}")
