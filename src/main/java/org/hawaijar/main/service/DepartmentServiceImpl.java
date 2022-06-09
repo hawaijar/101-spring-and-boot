@@ -25,7 +25,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 
 	@Override
-	public Optional<Department> getDepartmentById(Long id) throws DepartmentNotFoundException {
+	public Optional<Department> getDepartmentById(String id) throws DepartmentNotFoundException {
 		Optional<Department> dep = departmentRepository.findById(id);
 		if(dep.isEmpty()) {
 			throw new DepartmentNotFoundException("Department Not Available");
@@ -34,12 +34,12 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 
 	@Override
-	public void deleteDepartmentById(Long id) {
+	public void deleteDepartmentById(String id) {
 		departmentRepository.deleteById(id);
 	}
 
 	@Override
-	public Department  updateDepartmentById(Long id, Department newDepartment) {
+	public Department  updateDepartmentById(String id, Department newDepartment) {
 		Department department = departmentRepository.findById(id).orElse(null);
 		if(department != null) {
 			if(Objects.nonNull(newDepartment.getName()) &&
@@ -57,6 +57,6 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Override
 	public Optional<Department> getDepartmentByName(String name) {
-		return Optional.ofNullable(departmentRepository.findByNameIgnoreCase(name));
+		return Optional.ofNullable(departmentRepository.findOne(name));
 	}
 }

@@ -23,7 +23,7 @@ public class DepartmentController {
 		return departmentService.getAllDepartments();
 	}
 	@GetMapping("/api/departments/{id}")
-	public Optional<Department> getDepartmentById(@PathVariable("id") Long id) throws DepartmentNotFoundException {
+	public Optional<Department> getDepartmentById(@PathVariable("id") String id) throws DepartmentNotFoundException {
 		return departmentService.getDepartmentById(id);
 	}
 	@GetMapping("/api/departments/names/{name}")
@@ -31,12 +31,12 @@ public class DepartmentController {
 		return departmentService.getDepartmentByName(name);
 	}
 	@DeleteMapping("/api/departments/{id}")
-	public String deleteDepartmentById(@PathVariable("id") Long id) {
+	public String deleteDepartmentById(@PathVariable("id") String id) {
 		departmentService.deleteDepartmentById(id);
 		return "Department with id:" + id + " deleted successfully";
 	}
 	@PutMapping("/api/departments/{id}")
-	public Department updateDepartmentById(@PathVariable("id") Long id, @RequestBody Department department) {
+	public Department updateDepartmentById(@PathVariable("id") String id, @RequestBody Department department) {
 		return departmentService.updateDepartmentById(id, department);
 	}
 }
