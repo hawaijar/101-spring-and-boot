@@ -35,7 +35,7 @@ class DepartmentControllerTest {
 	void setUp() {
 		department = Department.builder()
 				.name("IT")
-				.id("1")
+				.id(1L)
 				.code("120L")
 				.build();
 	}
@@ -60,7 +60,7 @@ class DepartmentControllerTest {
 
 	@Test
 	void getDepartmentById() throws Exception {
-		Mockito.when(departmentService.getDepartmentById("101")).
+		Mockito.when(departmentService.getDepartmentById(101L)).
 				thenReturn(Optional.ofNullable(department));
 		mockMvc.perform(get("/api/departments/101")
 						.contentType(MediaType.APPLICATION_JSON))

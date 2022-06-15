@@ -24,10 +24,10 @@ class DepartmentServiceTest {
 	void setUp() {
 		Department department = Department.builder()
 				.name("IT")
-				.id("1")
+				.id(1L)
 				.code("120L")
 				.build();
-		Mockito.when(departmentRepository.findOne("IT")).thenReturn(department);
+		Mockito.when(departmentRepository.findByName("IT")).thenReturn(department);
 	}
 	@Test
 	@DisplayName("Testing getDepartmentByName()")
