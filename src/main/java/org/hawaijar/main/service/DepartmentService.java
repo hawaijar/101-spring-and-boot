@@ -11,11 +11,11 @@ public interface DepartmentService {
 
 	List<Department> getAllDepartments();
 
-	Optional<Department> getDepartmentById(String id) throws DepartmentNotFoundException;
+	Optional<Department> getDepartmentById(Long id) throws DepartmentNotFoundException;
 
-	void deleteDepartmentById(String id);
+	void deleteDepartmentById(Long id);
 
-	Department updateDepartmentById(String id, Department department);
+	Department updateDepartmentById(Long id, Department department);
 
 	Optional<Department> getDepartmentByName(String name);
 }

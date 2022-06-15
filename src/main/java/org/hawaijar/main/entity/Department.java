@@ -2,12 +2,15 @@ package org.hawaijar.main.entity;
 
 import lombok.*;
 import org.hibernate.Hibernate;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
-@Document("department")
+@Entity
 @Getter
 @Setter
 @ToString
@@ -16,7 +19,8 @@ import java.util.Objects;
 @Builder
 public class Department {
 	@Id
-	private String id;
+	@GeneratedValue(strategy= GenerationType.SEQUENCE)
+	private Long id;
 	@NotNull(message = "Please provide a valid message")
 	private String name;
 	private String code;
