@@ -19,5 +19,6 @@ public class Employee {
 	private String lastName;
 
 	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "card_number")
 	private IdentityCard identityCard;
 }
